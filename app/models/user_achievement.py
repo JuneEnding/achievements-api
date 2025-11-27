@@ -32,7 +32,7 @@ class UserAchievement(Base):
         nullable=False,
     )
 
-    issused_at: Mapped[datetime] = mapped_column(
+    issued_at: Mapped[datetime] = mapped_column(
         server_default=func.now(),
         nullable=False,
     )

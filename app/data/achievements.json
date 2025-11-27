@@ -1,0 +1,178 @@
+[
+  {
+    "id": "friday_prod_merge",
+    "name_en": "5-minute task",
+    "name_ru": "Задача на 5 минут",
+    "description_en": "Merged changes to production on Friday.",
+    "description_ru": "Смерджить изменения в прод вечером в пятницу.",
+    "points": 25
+  },
+  {
+    "id": "necromancer",
+    "name_en": "Necromancer",
+    "name_ru": "Некромант",
+    "description_en": "Performed a code autopsy on a legacy module, resurrected it into a clean, test-covered and understandable state.",
+    "description_ru": "Провести вскрытие легаси-модуля и воскресить его в виде чистого, покрытого тестами и понятного кода.",
+    "points": 50
+  }, 
+  {
+    "id": "pipeline_green",
+    "name_en": "Neo",
+    "name_ru": "Нео",
+    "description_en": "Pushed a change that passed the entire CI/CD pipeline on the first try.",
+    "description_ru": "Запушить изменение, которое с первого раза прошло весь CI/CD пайплайн без единой ошибки.",
+    "points": 15
+  },   
+  {
+    "id": "keyboard_master",
+    "name_en": "Keyboard Master",
+    "name_ru": "Мастер клавы",
+    "description_en": "Completed a task using only the keyboard — no mouse, no touchpad, pure hotkey power.",
+    "description_ru": "Решить задачу, используя только клавиатуру — без мыши, без тачпада, только хоткеи.",
+    "points": 15
+  },
+  {
+    "id": "bug_squasher",
+    "name_en": "Bug Squasher",
+    "name_ru": "Жукодав",
+    "description_en": "Found, fixed a bug in production, and added tests to ensure it never comes back.",
+    "description_ru": "Найти и починить баг на продакшене и добавить тесты, чтобы он никогда не вернулся.",
+    "points": 20
+  },
+  {
+    "id": "tambov_wolf_guard",
+    "name_en": "Tambov Wolf",
+    "name_ru": "Тамбовский волк",
+    "description_en": "Refused to approve suspicious or low-quality changes, protecting the codebase like a true wolf.",
+    "description_ru": "Отказаться одобрять сомнительные или некачественные изменения.",
+    "points": 15
+  },
+  {
+    "id": "no_crap_in_code",
+    "name_en": "No Crap in Code",
+    "name_ru": "Я ЗАПРЕЩАЮ ВАМ",
+    "description_en": "Cleaned up messy code, added standards or linters, and publicly stood for clean, readable code.",
+    "description_ru": "Добавить в CI/CD проверку линтера на MR.",
+    "points": 30
+  },
+  {
+    "id": "in_and_out",
+    "name_en": "In and out",
+    "name_ru": "Вошли и вышли",
+    "description_en": "Actually completed a so-called \"five-minute task\" in about five minutes.",
+    "description_ru": "Действительно сделать «задачу на 5 минут» за пять минут.",
+    "points": 15
+  },
+  {
+    "id": "walking_to_the_lake",
+    "name_en": "One Who Walks to the Lake",
+    "name_ru": "Идущий к озеру",
+    "description_en": "Find harmony from merging without differences.",
+    "description_ru": "Найти гармонию от слияния без конфликтов.",
+    "points": 20
+  },
+  {
+    "id": "pytest_master",
+    "name_en": "PyTest Master",
+    "name_ru": "Мастер PyTest",
+    "description_en": "Created a test suite, increasing code coverage by at least 5%.",
+    "description_ru": "Создать набор тестов, увеличив покрытие кода минимум на 5%.",
+    "points": 25
+  },
+  {
+    "id": "penguins_friend",
+    "name_en": "Penguins Friend",
+    "name_ru": "Друг пингвинов",
+    "description_en": "Solved a non-trivial problem using only Linux command-line tools and scripts.",
+    "description_ru": "Решить нетривиальную задачу, используя только инструменты Linux и скрипты в терминале.",
+    "points": 20
+  },
+  {
+    "id": "pg_query_tuner",
+    "name_en": "Postgres Query Tuner",
+    "name_ru": "Тюнер запросов Postgres",
+    "description_en": "Optimized a slow PostgreSQL query and reduced its execution time significantly.",
+    "description_ru": "Оптимизировать медленный запрос к PostgreSQL и сократить время его выполнения.",
+    "points": 30
+  },
+  {
+    "id": "migration_wizard",
+    "name_en": "Migration Wizard",
+    "name_ru": "Миграционный маг",
+    "description_en": "Designed and executed a safe database migration without downtime.",
+    "description_ru": "Спроектировать и провести безопасную миграцию базы данных без простоя.",
+    "points": 35
+  },
+  {
+    "id": "pep8_keeper",
+    "name_en": "Keeper of PEP 8",
+    "name_ru": "Хранитель PEP 8",
+    "description_en": "Refactored a module to fully comply with PEP 8 and improved its readability.",
+    "description_ru": "Отрефакторить модуль, полностью привести его к стандарту PEP 8 и повысить читаемость.",
+    "points": 15
+  },
+  {
+    "id": "asyncio_tamer",
+    "name_en": "Asyncio Tamer",
+    "name_ru": "Укротитель asyncio",
+    "description_en": "Implemented an asynchronous feature in Python that works reliably in production.",
+    "description_ru": "Реализовать асинхронный функционал на Python, который стабильно работает в продакшене.",
+    "points": 30
+  },
+  {
+    "id": "docker_alchemist",
+    "name_en": "Docker Alchemist",
+    "name_ru": "Алхимик Docker",
+    "description_en": "Containerized a Python service and made it easy to run locally and in CI.",
+    "description_ru": "Запаковать Python-сервис в Docker и сделать его простым для запуска локально и в CI.",
+    "points": 25
+  },
+  {
+    "id": "logs_whisperer",
+    "name_en": "Logs Whisperer",
+    "name_ru": "Шепчущий логам",
+    "description_en": "Found and fixed a complex issue using only logs and metrics.",
+    "description_ru": "Найти и исправить сложную проблему, опираясь только на логи и метрики.",
+    "points": 25
+  },
+  {
+    "id": "schema_guardian",
+    "name_en": "Schema Guardian",
+    "name_ru": "Страж схемы",
+    "description_en": "Introduced a change to the PostgreSQL schema while keeping backward compatibility.",
+    "description_ru": "Внести изменение в схему PostgreSQL, сохранив обратную совместимость.",
+    "points": 30
+  },
+  {
+    "id": "code_reviewer",
+    "name_en": "Eagle-Eyed Reviewer",
+    "name_ru": "Око ревьюера",
+    "description_en": "Performed a code review that caught a serious bug before it hit production.",
+    "description_ru": "Провести ревью кода и поймать серьёзный баг ещё до попадания в продакшн.",
+    "points": 20
+  },
+  {
+    "id": "team_player",
+    "name_en": "Team Player",
+    "name_ru": "Командный игрок",
+    "description_en": "Helped a teammate solve a tricky Python, Linux or Postgres issue.",
+    "description_ru": "Помочь коллеге разобраться со сложной задачей по Python, Linux или PostgreSQL.",
+    "points": 15
+  },
+  {
+    "id": "cli_toolsmith",
+    "name_en": "CLI Toolsmith",
+    "name_ru": "Кузнец CLI",
+    "description_en": "Created a command-line tool in Python that the team uses regularly.",
+    "description_ru": "Создать утилиту командной строки на Python, которой команда пользуется на постоянной основе.",
+    "points": 25
+  },
+  {
+    "id": "monitoring_guru",
+    "name_en": "Monitoring Guru",
+    "name_ru": "Гуру мониторинга",
+    "description_en": "Added useful metrics, alerts or dashboards that help monitor a Python service or Postgres.",
+    "description_ru": "Добавить полезные метрики, алерты или дашборды для мониторинга Python-сервиса или Postgres.",
+    "points": 30
+  }
+]

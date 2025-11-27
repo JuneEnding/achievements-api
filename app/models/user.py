@@ -4,6 +4,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from app.models.user_achievement import UserAchievement
+    from app.models.user_daily_stat import UserDailyStat
 
 from datetime import datetime
 
@@ -27,7 +28,7 @@ class User(Base):
         nullable=False,
     )
 
-    lamguage: Mapped[Language] = mapped_column(
+    language: Mapped[Language] = mapped_column(
         PG_ENUM(Language, name="language_enum", create_type=False),
         nullable=False,
     )
@@ -44,6 +45,11 @@ class User(Base):
         nullable=False,
     )
 
-    achievement: Mapped[list[UserAchievement]] = relationship(
+    achievements: Mapped[list[UserAchievement]] = relationship(
         back_populates="user", cascade="all, delete-orphan"
+    )
+
+    daily_stats: Mapped[list[UserDailyStat]] = relationship(
+        back_populates="user",
+        cascade="all, delete-orphan",
     )
