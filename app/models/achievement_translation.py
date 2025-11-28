@@ -2,9 +2,6 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-if TYPE_CHECKING:
-    from app.models.achievement import Achievement
-
 from sqlalchemy import ForeignKey, String, Text, UniqueConstraint
 from sqlalchemy.dialects.postgresql import ENUM as PG_ENUM
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -12,8 +9,23 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.db.base import Base
 from app.models.enums import Language
 
+if TYPE_CHECKING:
+    from app.models.achievement import Achievement
+
 
 class AchievementTranslation(Base):
+    """
+    Хранит локализованные название и описание достижения на конкретном языке.
+    Для каждой пары (achievement_id, language) допускается только одна запись.
+
+    Поля:
+        id: Первичный ключ записи.
+        achievement_id: Идентификатор базового достижения.
+        language: Язык перевода (ru/en).
+        name: Название достижения на указанном языке.
+        description: Описание достижения на указанном языке.
+    """
+
     __tablename__ = "achievement_translations"
     __table_args__ = (
         UniqueConstraint(

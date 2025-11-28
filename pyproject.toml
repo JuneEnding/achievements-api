@@ -3,7 +3,7 @@ name = "achievements-api"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12, <3.13"
 dependencies = [
     "alembic>=1.17.2",
     "asyncpg>=0.31.0",
@@ -29,5 +29,7 @@ target-version = "py312"
 [tool.ruff.lint]
 select = ["E", "F", "W", "B", "I", "UP", "SIM", "C4", "N", "RUF", "S"]
 ignore = [
-    "E501",  # длинные строки
+    "E501",  # длинные строки,
+    "RUF001",
+    "RUF002"
 ]

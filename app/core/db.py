@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from collections.abc import AsyncGenerator
 
 from sqlalchemy.ext.asyncio import (
@@ -22,5 +20,12 @@ AsyncSessionFactory = async_sessionmaker(
 
 
 async def get_session() -> AsyncGenerator[AsyncSession, None]:
+    """
+    Зависимость FastAPI, которая предоставляет асинхронную сессию SQLAlchemy
+    для работы с базой данных. Сессия автоматически закрывается после
+    завершения обработки запроса.
+
+    :yield: Асинхронная сессия SQLAlchemy.
+    """
     async with AsyncSessionFactory() as session:
         yield session

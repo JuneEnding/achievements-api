@@ -1,12 +1,7 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from app.models.user_achievement import UserAchievement
-    from app.models.user_daily_stat import UserDailyStat
-
 from datetime import datetime
+from typing import TYPE_CHECKING
 
 from sqlalchemy import Integer, String, func
 from sqlalchemy.dialects.postgresql import ENUM as PG_ENUM
@@ -15,8 +10,27 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.db.base import Base
 from app.models.enums import Language
 
+if TYPE_CHECKING:
+    from app.models.user_achievement import UserAchievement
+    from app.models.user_daily_stat import UserDailyStat
+
 
 class User(Base):
+    """
+    Представляет пользователя, который может получать достижения. Хранит
+    имя, язык, суммарные очки и дату создания
+    учётной записи.
+
+    Поля:
+        id: Первичный ключ пользователя.
+        username: Уникальный логин пользователя.
+        language: Предпочитаемый язык интерфейса (ru/en).
+        total_points: Суммарное количество очков за все достижения.
+        created_at: Дата и время создания пользователя.
+        achievements: Список выданных достижений (связанные UserAchievement).
+        daily_stats: Ежедневная статистика по очкам пользователя.
+    """
+
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(primary_key=True)

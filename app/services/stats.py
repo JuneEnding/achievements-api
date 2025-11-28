@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from datetime import date
 from itertools import combinations, pairwise
 
@@ -16,6 +14,11 @@ class StatsService:
         self.session = session
 
     async def user_with_max_achievements(self) -> UserWithCount | None:
+        """
+        Вычисление пользователя, у которого выдано максимальное количество достижений.
+
+        :return: Пользователь и количество его достижений или None, если данных нет.
+        """
         stmt = (
             select(
                 User.id,
@@ -43,6 +46,11 @@ class StatsService:
         )
 
     async def user_with_max_points(self) -> UserWithCount | None:
+        """
+        Вычисление пользователя с максимальной суммой очков за достижения.
+
+        :return: Пользователь и его суммарные очки или None, если данных нет.
+        """
         stmt = (
             select(
                 User.id,
@@ -70,6 +78,12 @@ class StatsService:
         )
 
     async def max_min_points_diff(self) -> tuple[PointsDiffPair | None, PointsDiffPair | None]:
+        """
+        По всем пользователям вычисляется пара с максимальной и минимальной
+        ненулевой разностью суммарных очков.
+
+        :return: Кортеж из пары с максимальной разностью и пары с минимальной разностью.
+        """
         stmt = select(User.id, User.username, User.total_points)
         rows = (await self.session.execute(stmt)).all()
         users = list(rows)
@@ -155,8 +169,7 @@ class StatsService:
                     current += 1
                 else:
                     current = 1
-                if current > longest:
-                    longest = current
+                longest = max(longest, current)
 
             if longest >= min_days:
                 result_users.append(

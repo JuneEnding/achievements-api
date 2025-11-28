@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from typing import Annotated
 
 from fastapi import Depends
@@ -14,14 +12,33 @@ SessionDep = Annotated[AsyncSession, Depends(get_session)]
 
 
 def get_user_service(session: SessionDep) -> UserService:
+    """
+    Создаёт экземпляр сервиса работы с пользователями на основе переданной
+    асинхронной сессии БД.
+
+    :param session: Асинхронная сессия SQLAlchemy.
+    :return: Экземпляр UserService.
+    """
     return UserService(session)
 
 
 def get_achievement_service(session: SessionDep) -> AchievementService:
+    """
+    Создаёт экземпляр сервиса работы с достижениями.
+
+    :param session: Асинхронная сессия SQLAlchemy.
+    :return: Экземпляр AchievementService.
+    """
     return AchievementService(session)
 
 
 def get_stats_service(session: SessionDep) -> StatsService:
+    """
+    Создаёт экземпляр сервиса статистики по пользователям и достижениям.
+
+    :param session: Асинхронная сессия SQLAlchemy.
+    :return: Экземпляр StatsService.
+    """
     return StatsService(session)
 
 

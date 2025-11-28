@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import asyncio
 import json
 import random
@@ -25,6 +23,13 @@ ACHIEVEMENTS_JSON_PATH = BASE_DIR / "data" / "achievements.json"
 
 
 async def is_already_seeded(session: AsyncSession) -> bool:
+    """
+    Проверка, содержит ли база данных уже записи пользователей, достижений
+    или выданных достижений.
+
+    :param session: Асинхронная сессия SQLAlchemy.
+    :return: True, если данные уже есть, иначе False.
+    """
     ach_count = await session.scalar(select(func.count(Achievement.id)))
     user_count = await session.scalar(select(func.count(User.id)))
     ua_count = await session.scalar(select(func.count(UserAchievement.id)))
@@ -32,6 +37,12 @@ async def is_already_seeded(session: AsyncSession) -> bool:
 
 
 async def seed_achievements(session: AsyncSession) -> dict[str, Achievement]:
+    """
+    Создание или обновление достижений и их переводов на основе JSON-файла.
+
+    :param session: Асинхронная сессия SQLAlchemy.
+    :return: Словарь код достижения → объект достижения.
+    """
     if not ACHIEVEMENTS_JSON_PATH.exists():
         raise FileNotFoundError(f"JSON file not found: {ACHIEVEMENTS_JSON_PATH}")
 
@@ -85,6 +96,13 @@ async def seed_achievements(session: AsyncSession) -> dict[str, Achievement]:
 
 
 async def seed_users(session: AsyncSession) -> list[User]:
+    """
+    Создание набора демонстрационных пользователей с разными языками интерфейса.
+    Уже существующие пользователи с тем же именем переиспользуются.
+
+    :param session: Асинхронная сессия SQLAlchemy.
+    :return: Список созданных или найденных пользователей.
+    """
     demo_users = [
         ("streak_ru", Language.RU),
         ("streak_en", Language.EN),
@@ -122,6 +140,15 @@ async def seed_user_achievements(
     users: list[User],
     achievements_by_code: dict[str, Achievement],
 ) -> None:
+    """
+    Выдача достижений пользователям для заполнения базы демонстрационными данными.
+    Для части пользователей создаются стрики из нескольких подряд идущих дней.
+
+    :param session: Асинхронная сессия SQLAlchemy.
+    :param users: Пользователи, которым выдаются достижения.
+    :param achievements_by_code: Словарь код достижения → объект достижения.
+    :return: None.
+    """
     if not users or not achievements_by_code:
         return
 
@@ -188,6 +215,13 @@ async def seed_user_achievements(
 
 
 async def main() -> None:
+    """
+    Точка входа скрипта заполнения базы демонстрационными данными:
+    открывает сессию, проверяет наличие данных и при необходимости
+    создаёт достижения, пользователей и выданные достижения.
+
+    :return: None.
+    """
     async with AsyncSessionFactory() as session:
         if await is_already_seeded(session):
             print("Database already contains data. Skipping seeding.")
