@@ -13,10 +13,6 @@ from httpx import AsyncClient, ConnectError
 async def client() -> AsyncIterator[AsyncClient]:
     """
     Асинхронный HTTP-клиент для интеграционных тестов.
-
-    - Создаётся один AsyncClient на всю тестовую сессию.
-    - Перед запуском тестов ждём, пока тестовый сервер ответит 200 на /health.
-    - Если сервер не поднялся за таймаут — падаем с понятной ошибкой.
     """
     base_url: str = os.getenv("TEST_API_URL", "http://localhost:8000")
 

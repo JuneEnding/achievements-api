@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 
-from app.api.v1 import achievements as achievements_router
-from app.api.v1 import stats as stats_router
-from app.api.v1 import users as users_router
+from app.api.v_first import achievements as achievements_router
+from app.api.v_first import stats as stats_router
+from app.api.v_first import users as users_router
 from app.core.logging import setup_logging
 
 

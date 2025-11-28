@@ -4,7 +4,7 @@
 
 > **ВНИМАНИЕ про `.env`**  
 > В этом репозитории файл `.env` добавлен **исключительно для удобства проверки тестового задания**.  
-> В реальном проекте такие файлы с чувствительными данными в репозиторий **не коммитят** — используют `.env.example`, секреты в CI/CD, Vault и т.п.
+> В реальном проекте такие файлы с чувствительными данными в репозиторий **не коммитят** - используют `.env.example`, секреты в CI/CD, Vault и т.п.
 
 ## Технологический стек
 - Python 3.12
@@ -20,9 +20,9 @@
 
 Сервис состоит из трёх компонентов:
 
-- **PostgreSQL (db)** — хранилище данных с пользователями, их достижениями.
-- **API (api)** — FastAPI-приложение c асинхронным доступом к БД.
-- **nginx (nginx)** — reverse proxy, который принимает HTTP-запросы на порт `80` и проксирует их в контейнер `api:8000`.
+- **PostgreSQL (db)** - хранилище данных с пользователями, их достижениями.
+- **API (api)** - FastAPI-приложение c асинхронным доступом к БД.
+- **nginx (nginx)** - reverse proxy, который принимает HTTP-запросы на порт `80` и проксирует их в контейнер `api:8000`.
 
 Схема:
 
@@ -37,9 +37,9 @@ Client (browser, curl)
 ```
 
 Отдельно в Docker Compose есть тестовый стек:
-- db_test — отдельная тестовая БД;
-- api_test_server — API, поднятый поверх тестовой БД;
-- api_test — контейнер, который запускает pytest.
+- db_test - отдельная тестовая БД;
+- api_test_server - API, поднятый поверх тестовой БД;
+- api_test - контейнер, который запускает pytest.
 
 ## Схема БД
 [![Схема БД](docs/db_schema.png)](docs/db_schema.png)
@@ -101,7 +101,7 @@ docker compose --profile dev up
 5. Проверка:
 API через nginx: http://localhost/
 Swagger: http://localhost/docs
-Пример: GET http://localhost/api/v1/users/1
+Пример: GET http://localhost/api/v_first/users/1
 
 При старте контейнера api автоматически:
 - применяются миграции Alembic (alembic upgrade head);
@@ -140,7 +140,7 @@ uv run pre-commit run --all-files
 ```text
 app/
   api/
-    v1/                 # роутеры FastAPI
+    v_first/                 # роутеры FastAPI
   core/
     config.py           # настройки (pydantic-settings)
     db.py               # async-engine и Session
