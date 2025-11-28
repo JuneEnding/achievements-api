@@ -24,8 +24,6 @@
 - **API (api)** — FastAPI-приложение c асинхронным доступом к БД.
 - **nginx (nginx)** — reverse proxy, который принимает HTTP-запросы на порт `80` и проксирует их в контейнер `api:8000`.
 
-[![Схема БД](docs/db_schema.png)](docs/db_schema.png)
-
 Схема:
 
 ```text
@@ -42,6 +40,9 @@ Client (browser, curl)
 - db_test — отдельная тестовая БД;
 - api_test_server — API, поднятый поверх тестовой БД;
 - api_test — контейнер, который запускает pytest.
+
+## Схема БД
+[![Схема БД](docs/db_schema.png)](docs/db_schema.png)
 
 ## Основной функционал
 
@@ -135,26 +136,29 @@ uv run pre-commit run --all-files
 ```
 
 ## Структура проекта
+
+```text
 app/
   api/
-    v1/             # роутеры FastAPI
+    v1/                 # роутеры FastAPI
   core/
-    config.py       # настройки (pydantic-settings)
-    db.py           # async-engine и Session
-    logging.py      # настройка логирования
-  models/           # ORM-модели SQLAlchemy
-  schemas/          # Pydantic-схемы
-  services/         # бизнес-логика (users, achievements, stats)
-  seed_demo_data.py # скрипт для генерации демо-данных
+    config.py           # настройки (pydantic-settings)
+    db.py               # async-engine и Session
+    logging.py          # настройка логирования
+  models/               # ORM-модели SQLAlchemy
+  schemas/              # Pydantic-схемы
+  services/             # бизнес-логика (users, achievements, stats)
+  seed_demo_data.py     # скрипт для генерации демо-данных
   data/
     achievements.json   # исходный набор достижений для сидинга
 etc/
-  migrations/       # Alembic миграции
+  migrations/           # Alembic миграции
 nginx/
-  nginx.conf        # конфигурация reverse proxy
+  nginx.conf            # конфигурация reverse proxy
 docker-compose.yml
 Dockerfile
 README.md
+```
 
 ### Скриншоты работы сервиса
 ![alt text](docs/docker_console_log.png)
