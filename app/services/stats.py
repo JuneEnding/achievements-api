@@ -116,6 +116,16 @@ class StatsService:
         return max_pair, min_pair
 
     async def users_with_7day_streak(self, min_days: int = 7) -> list[UserWithStreak]:
+        """
+        По датам выдачи достижений для каждого пользователя вычисляется
+        длина максимального стрика - количества подряд идущих дней, в каждый
+        из которых было выдано хотя бы одно достижение. Возвращаются
+        пользователи, у которых длина стрика не меньше min_days.
+
+        :param min_days: Минимальная длина стрика в днях.
+        :return: Список пользователей с информацией о максимальном стрике.
+        """
+
         day_expr = func.date_trunc("day", UserAchievement.issued_at).label("day")
 
         stmt = (
